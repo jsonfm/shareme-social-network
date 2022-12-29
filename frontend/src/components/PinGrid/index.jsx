@@ -16,7 +16,7 @@ const breakpointColumnsObj = {
 
 export function PinGrid({ pins }) {
     return (
-        <Masonry className="flex animate-slide-fwd gap-6 px-5" breakpointCols={breakpointColumnsObj}>
+        <Masonry className="flex animate-slide-fwd gap-6 px-5 overflow-y-auto overscroll-y-scroll" breakpointCols={breakpointColumnsObj}>
             {pins?.map((pin) => (
                 <PinCard
                 

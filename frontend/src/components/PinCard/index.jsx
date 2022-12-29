@@ -4,7 +4,7 @@ import React from 'react'
 
 export function PinCard() {
   return (
-    <article className="mx-auto">
+    <article className="mx-auto my-6">
       <Link
         to="/pindetail/1"
       >
