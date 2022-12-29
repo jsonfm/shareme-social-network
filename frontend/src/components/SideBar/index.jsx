@@ -4,10 +4,11 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import Logo from "@/assets/images/logo.png";
 import { categories } from "@/utils/categories";
 import { BsArrowRightShort } from "react-icons/bs";
-
+import { authService } from "@/services/auth.service";
 
 export function CategoryCardLink({ image, category }){
     const style = "flex items-center gap-3 text-gray hover:text-black duration-200";
+
     return(
         <NavLink
             className={({ isActive }) => (`${style} ${isActive ? 'font-extrabold' : ''}`)}
@@ -25,6 +26,9 @@ export function CategoryCardLink({ image, category }){
 }
 
 export function SideBar({ show, setShow }) {
+    const user = authService.getUser();
+    const {image:profileImage, username, _id} = user;
+
     return (
         <div className={`${show ? 'left-0' : '-left-[100%]'} flex flex-col justify-between  md:left-0 md:w-1/4 md:py-6 min-h-screen bg-white fixed top-0  duration-200 px-4 py-2`}>
             <div className="flex flex-col">
@@ -53,12 +57,14 @@ export function SideBar({ show, setShow }) {
                     />
                 ))}
             </div>
-            <Link to="/profile/1" className="flex justify-between items-center gap-1 shadow-md mt-[10%] py-2 px-2 ronded-xl">
+            <Link to={`/profile/${_id}}`} className="flex justify-between items-center gap-1 shadow-md mt-[10%] py-2 px-2 ronded-xl">
                 <img
                     className="w-10 h-10 rounded-full bg-gray-300"
+                    alt="user-avatar"
+                    src={profileImage}
                 />
                 <p>
-                    Lorem ipsum dolor sit
+                    {username}
                 </p>
                 <BsArrowRightShort size={20}/>
             </Link>

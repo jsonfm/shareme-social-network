@@ -5,11 +5,13 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { SiAddthis } from "react-icons/si";
 import { BiSearch } from "react-icons/bi";
 import { SideBar } from "@/components/SideBar";
-
+import { authService } from "@/services/auth.service";
 
 export function Header() {
     const [show, setShow] = useState(false);
-
+    const user = authService.getUser();
+    const { image, _id } = user;
+    
     return (
         <header className="flex items-center w-full h-16 shadow-xl md:shadow-none z-[100] sticky top-0 ">
             <SideBar show={show} setShow={setShow}/>
@@ -34,13 +36,14 @@ export function Header() {
                 </div>
                 <div className="flex items-center gap-4">
                     <Link
-                        to="/profile/1"
+                        to={`/profile/${_id}`}
                         className="w-12 h-12 rounded-full overflow-hidden bg-gray-200"
                     >
                         <img
                             className="w-full h-full object-cover"
                             logo="avatar"
                             alt="avatar"
+                            src={image}
                         />
                     </Link>
                     <Link classNmae="hidden md:flex">
