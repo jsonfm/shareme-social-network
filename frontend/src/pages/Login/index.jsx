@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React from 'react'
 import ShareVideo from "@/assets/videos/share.mp4";
 import LogoWhite from "@/assets/images/logowhite.png";
@@ -18,10 +19,12 @@ export function Login() {
         />
         <div className="absolute top-0 left-0 w-full h-full bg-black/40">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-                <img
-                    src={LogoWhite}
-                    className="w-32 mx-auto mb-4"
-                />
+                <Link to="/" className="">
+                    <img
+                        src={LogoWhite}
+                        className="w-32 mx-auto mb-6"
+                    />
+                </Link>
                 <GoogleLogin
                     onSuccess={credentialResponse => {
                         console.log(credentialResponse);

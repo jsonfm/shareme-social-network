@@ -53,7 +53,7 @@ export function SideBar({ show, setShow }) {
                     />
                 ))}
             </div>
-            <Link to="/profile/1" className="flex justify-between items-center gap-1 shadow-md mt-[10%] py-2 px-2">
+            <Link to="/profile/1" className="flex justify-between items-center gap-1 shadow-md mt-[10%] py-2 px-2 ronded-xl">
                 <img
                     className="w-10 h-10 rounded-full bg-gray-300"
                 />
