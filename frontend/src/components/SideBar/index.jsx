@@ -2,9 +2,11 @@ import { NavLink, Link } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
 import { AiFillCloseCircle } from "react-icons/ai";
 import Logo from "@/assets/images/logo.png";
+import { categories } from "@/utils/categories";
+import { BsArrowRightShort } from "react-icons/bs";
 
 
-export function CategoryCardLink({image, category}){
+export function CategoryCardLink({ image, category }){
     const style = "flex items-center gap-3 text-gray hover:text-black duration-200";
     return(
         <NavLink
@@ -13,8 +15,9 @@ export function CategoryCardLink({image, category}){
             <img
                 className="w-8 h-8 rounded-full shadow-sm bg-gray-500"
                 alt="category-avatar"
+                src={image}
             />
-            <p>
+            <p className="capitalize">
                 {category}
             </p>
         </NavLink>
@@ -23,7 +26,7 @@ export function CategoryCardLink({image, category}){
 
 export function SideBar({ show, setShow }) {
     return (
-        <div className={`${show ? 'left-0' : '-left-[100%]'} md:left-0 md:w-1/4 md:py-6 h-screen bg-white fixed top-0  duration-200 px-4 py-2`}>
+        <div className={`${show ? 'left-0' : '-left-[100%]'} flex flex-col justify-between  md:left-0 md:w-1/4 md:py-6 min-h-screen bg-white fixed top-0  duration-200 px-4 py-2`}>
             <div className="flex flex-col">
                 <AiFillCloseCircle 
                     size={32} 
@@ -34,17 +37,31 @@ export function SideBar({ show, setShow }) {
                     src={Logo}
                     className="h-8 md:h-6 object-contain self-start"
                 />
+                 <Link to="/" className="flex gap-4 items-center my-4">
+                    <AiFillHome size={20}/>
+                    <p>Home</p>
+                </Link>
+                <h4 className="my-2 font-semibold">
+                    Discover categories
+                </h4>
             </div>
-            <Link to="/" className="flex gap-4 items-center my-4">
-                <AiFillHome size={20}/>
-                <p>Home</p>
+            <div className="flex flex-col gap-2 max-h-[60vh] 2xl:max-h-[70vh] overflow-y-auto">
+                {categories.map(({ name, image }) => (
+                    <CategoryCardLink
+                        image={image}
+                        category={name}
+                    />
+                ))}
+            </div>
+            <Link to="/profile/1" className="flex justify-between items-center gap-1 shadow-md mt-[10%] py-2 px-2">
+                <img
+                    className="w-10 h-10 rounded-full bg-gray-300"
+                />
+                <p>
+                    Lorem ipsum dolor sit
+                </p>
+                <BsArrowRightShort size={20}/>
             </Link>
-            <h4 className="my-2">
-                Discover categories
-            </h4>
-            <div className="flex flex-col gap-2">
-                <CategoryCardLink/>
-            </div>
         </div>
     )
 }
