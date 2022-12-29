@@ -7,7 +7,7 @@ export function Profile() {
     <section>
         <img
             src="https://source.unsplash.com/1600x900/?nature,photography,technology"
-            className="h-[50vh] w-full shadow-md"
+            className="h-[50vh] md:h-[70vh] w-full object-cover shadow-md"
         />
     </section>
     <section>

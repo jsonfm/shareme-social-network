@@ -23,16 +23,16 @@ export function CategoryCardLink({image, category}){
 
 export function SideBar({ show, setShow }) {
     return (
-        <div className={`${show ? 'left-0' : '-left-[100%]'} w-72 h-screen bg-white absolute top-0  duration-200 px-4 py-2`}>
+        <div className={`${show ? 'left-0' : '-left-[100%]'} w-72 md:py-6 md:w-1/4 h-screen bg-white fixed top-0  duration-200 px-4 py-2`}>
             <div className="flex flex-col">
                 <AiFillCloseCircle 
-                    className="self-end"
                     size={32} 
                     onClick={() => setShow(!show)}
+                    className="self-end md:hidden"
                 />
                 <img
                     src={Logo}
-                    className="h-8 object-contain self-start"
+                    className="h-8 md:h-6 object-contain self-start"
                 />
             </div>
             <Link to="/" className="flex gap-4 items-center my-4">

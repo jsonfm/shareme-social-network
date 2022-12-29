@@ -1,7 +1,9 @@
 
 export function Home() {
   return (
-    <div>Home</div>
+    <section className="h-screen p-5">
+        Home
+    </section>
   )
 }
 
