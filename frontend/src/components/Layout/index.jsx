@@ -15,6 +15,7 @@ export function Layout({ children }) {
     const { pathname } = location;
     const showHeader = hideheader.some(value => value.toLowerCase().includes(pathname.toLowerCase()));
     const isLogin = pathname.includes('login');
+    const isProfile = pathname.includes('profile');
 
     return (
         <>
@@ -25,11 +26,8 @@ export function Layout({ children }) {
                     </div>
                 }
                 <div className={`w-full ${!isLogin && 'md:w-3/4'} overflow-hidden relative flex flex-col`}>
-                {/* {!pathname.includes('login') &&
-                    <div className={`${!showHeader && 'md:hidden'}`}><Header/></div>
-                } */}
                     {!isLogin &&
-                        <Header/>
+                        <div className={`${isProfile && 'md:hidden'}`}><Header/></div>
                     }
                     {children}
                 </div>
