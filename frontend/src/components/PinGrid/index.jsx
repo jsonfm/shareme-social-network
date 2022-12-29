@@ -15,13 +15,13 @@ const breakpointColumnsObj = {
 
 
 export function PinGrid({ pins }) {
-  return (
-    <Masonry className="flex animate-slide-fwd" breakpointCols={breakpointColumnsObj}>
-        {pins?.map((pin) => (
-            <PinCard
-            
-            />
-        ))}
-    </Masonry>
-  )
+    return (
+        <Masonry className="flex animate-slide-fwd gap-6 px-5" breakpointCols={breakpointColumnsObj}>
+            {pins?.map((pin) => (
+                <PinCard
+                
+                />
+            ))}
+        </Masonry>
+    )
 }

@@ -23,7 +23,7 @@ export function CategoryCardLink({image, category}){
 
 export function SideBar({ show, setShow }) {
     return (
-        <div className={`${show ? 'left-0' : '-left-[100%]'} w-72 md:py-6 md:w-1/4 h-screen bg-white fixed top-0  duration-200 px-4 py-2`}>
+        <div className={`${show ? 'left-0' : '-left-[100%]'} md:left-0 md:w-1/4 md:py-6 h-screen bg-white fixed top-0  duration-200 px-4 py-2`}>
             <div className="flex flex-col">
                 <AiFillCloseCircle 
                     size={32} 
