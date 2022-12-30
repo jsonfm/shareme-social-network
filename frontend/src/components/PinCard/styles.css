@@ -1,0 +1,9 @@
+.pin-image .pin-buttons {
+    display: none;
+
+}
+
+.pin-image:hover .pin-buttons {
+    display: flex;
+    flex-direction: column;
+}

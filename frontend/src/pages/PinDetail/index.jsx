@@ -6,11 +6,8 @@ import { authService } from '@/services/auth.service';
 import { pinDetailQuery } from '@/api/queries';
 import { client } from "@/api/client";
 import { useQuery } from '@tanstack/react-query';
+import { truncate } from "@/utils/strings";
 
-
-function truncate(str) {
-    return str.length > 25 ? str.substring(0, 20) + "..." : str;
-}
 
 export function PinDetail() {
     const { id } = useParams();

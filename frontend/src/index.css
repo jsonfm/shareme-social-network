@@ -11,3 +11,13 @@ html, body {
 .hide-scrollbar::-webkit-scrollbar {
     display: none;
 }
+
+@layer components {
+    .btn {
+        @apply px-4 py-2 outline-none border-none;
+    }
+    
+    .btn-primary {
+       @apply  bg-[#EF4444] text-white;
+    }
+}
