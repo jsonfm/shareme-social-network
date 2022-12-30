@@ -48,7 +48,7 @@ export function Header() {
                             src={image}
                         />
                     </Link>
-                    <Link classNmae="hidden md:flex">
+                    <Link to="/pin/create" classNmae="hidden md:flex">
                         <SiAddthis size={35}/>
                     </Link>
                 </div>

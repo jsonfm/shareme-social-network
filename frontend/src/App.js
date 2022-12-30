@@ -10,7 +10,7 @@ import { Home } from "@/pages/Home";
 import { Profile } from "@/pages/Profile";
 import { Login } from "@/pages/Login";
 import { PinDetail } from "@/pages/PinDetail";
-
+import { PinCreate } from "@/pages/PinCreate";
 
 
 function App() {
@@ -26,7 +26,8 @@ function App() {
         <Layout>
             <Routes>
               <Route path="/" element={ <Home/>} />
-              <Route path="/pindetail/:id" element={<PinDetail/>} />
+              <Route path="/pin/detail/:id" element={<PinDetail/>} />
+              <Route path="/pin/create/" element={<PinCreate />} />
               <Route path="/profile/:id" element={ <Profile/> } />
               <Route path="/login" element={ <Login/> } />
             </Routes>
