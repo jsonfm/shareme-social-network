@@ -39,7 +39,7 @@ export function PinCreate() {
     });
 
     const user = authService.getUser();
-    
+
     if(!user) return;
 
     const { image, username } = user;
@@ -76,7 +76,7 @@ export function PinCreate() {
                             className="outline-none border-b-2 px-2 py-1"
                         />
                         <p className="mt-5 text-xl">Choose Pin Category</p>
-                        <select className="capitalize outline-none border-b-2 px-2 py-1">
+                        <select className="capitalize outline-none border-b-2 px-2 py-1 bg-transparent">
                             <option>Select a Category</option>
                             {categories.map(category => (
                                 <option className="capitalize">{category.name}</option>

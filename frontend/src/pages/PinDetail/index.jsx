@@ -1,20 +1,47 @@
 import React from 'react';
-import { PinGrid } from "@/components/PinGrid";
+import { useParams } from 'react-router-dom';
 import { BsDownload } from "react-icons/bs";
+import { PinGrid } from "@/components/PinGrid";
 import { authService } from '@/services/auth.service';
+import { pinDetailQuery } from '@/api/queries';
+import { client } from "@/api/client";
+import { useQuery } from '@tanstack/react-query';
+
+
+function truncate(str) {
+    return str.length > 25 ? str.substring(0, 20) + "..." : str;
+}
 
 export function PinDetail() {
+    const { id } = useParams();
+
+    const { isLoading: loading, error, data } = useQuery({
+        queryKey: ['pin-detail'],
+        queryFn: () => client.fetch(pinDetailQuery(id))
+    });
+
     const user = authService.getUser();
-    
+
     if(!user) return;
     const { image, username } = user;
+
+    if(loading){
+        return <p>loading...</p>
+    }
+
+    if(!!error) {
+        return <p>{error}</p>
+    }
+
+    const { postedBy, title, about, destination, image:imagePin } = data[0];
+    console.log("posted: ", postedBy);
 
     return (
         <>
             <section className="flex flex-col md:flex-row min-h-screen p-5 bg-white md:mx-5 mt-5">
                 <div className="rounded-lg w-full md:w-1/2 overflow-hidden">
                     <img 
-                        src="https://images.unsplash.com/photo-1672108097936-27d9f3bf347c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+                        src={imagePin.asset.url}
                         className="rounded-lg w-full object-contain min-h-[200px]"
                     />
                 </div>
@@ -22,22 +49,24 @@ export function PinDetail() {
                     <div className="flex items-center justify-between">
                         <BsDownload/>
                         <a>
-                            Some link
+                            {truncate(destination)}
                         </a>
                     </div>
                     <p className="font-bold text-xl mt-6">
-                        Lorem, ipsum dolor.
+                        {title}
                     </p>
                     <p className="mt-4">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, sapiente.
+                        {about}
                     </p>
 
                     <div className="flex items-center gap-2 mt-6">
                         <img
                             className="w-10 h-10 bg-gray-300 rounded-full"
+                            alt="postedby-avatar"
+                            src={postedBy.image}
                         />
                         <p className="capitalize font-bold">
-                            Emily
+                            {postedBy.username}
                         </p>
                     </div>
 
