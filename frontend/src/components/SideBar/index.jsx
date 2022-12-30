@@ -52,10 +52,11 @@ export function SideBar({ show, setShow }) {
                 </h4>
             </div>
             <div className="flex flex-col gap-2 max-h-[60vh] 2xl:max-h-[70vh] overflow-y-auto">
-                {categories.map(({ name, image }) => (
+                {categories.map(({ name, image }, index) => (
                     <CategoryCardLink
                         image={image}
                         category={name}
+                        key={`catside-${index}`}
                     />
                 ))}
             </div>

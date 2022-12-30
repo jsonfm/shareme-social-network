@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { categories } from "@/utils/categories";
 import { authService } from "@/services/auth.service";
 import { AiOutlineCloudUpload } from "react-icons/ai";
@@ -18,9 +18,28 @@ function UploadCard(){
     )
 }
 
+function ImagePreview(){
+    return(
+        <div className="h-full py-12 md:py-16 relative">
+            <img
+                className="bg-pink-700/40"
+            />
+
+        </div>
+    )
+}
+
 
 export function PinCreate() {
+    const [state, setState] = useState({
+        file: undefined,
+        title: undefined,
+        description: "",
+        link: ""
+    });
+
     const user = authService.getUser();
+    
     if(!user) return;
 
     const { image, username } = user;

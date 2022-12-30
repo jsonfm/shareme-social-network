@@ -5,6 +5,8 @@ import { authService } from '@/services/auth.service';
 
 export function PinDetail() {
     const user = authService.getUser();
+    
+    if(!user) return;
     const { image, username } = user;
 
     return (
@@ -66,7 +68,7 @@ export function PinDetail() {
                 <p className="text-center my-6 font-[400] text-xl">
                     More like this
                 </p>
-                <PinGrid pins={[1, 2, 4, 5, 6, 8, 9 ]}/>
+                <PinGrid />
             </section>
         </>
     )
