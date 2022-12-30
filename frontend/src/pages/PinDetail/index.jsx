@@ -32,7 +32,7 @@ export function PinDetail() {
 
     const { postedBy, title, about, destination, image:imagePin } = data[0];
     console.log("posted: ", postedBy);
-
+    window.scrollTo(0, 0)
     return (
         <>
             <section className="flex flex-col md:flex-row min-h-screen p-5 bg-white md:mx-5 mt-5">
