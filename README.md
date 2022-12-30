@@ -7,7 +7,7 @@
 />
 
 ### Shareme
-A social network app made with React.js and Sanity.
+A social media app made with React.js and Sanity, design inspired by pinterest. Allows users to create and like posts. It also allows authentication through Google OAuth2. Frontend uses tailwind for styles. The site is full responsive.
 
 
 ### 🎨 Frontend
@@ -17,3 +17,4 @@ A social network app made with React.js and Sanity.
 
 ### ⚡️ Backend
 - Sanity
+- Google Auth
