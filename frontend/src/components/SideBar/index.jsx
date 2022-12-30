@@ -27,6 +27,8 @@ export function CategoryCardLink({ image, category }){
 
 export function SideBar({ show, setShow }) {
     const user = authService.getUser();
+    if(!user) return;
+    
     const {image:profileImage, username, _id} = user;
 
     return (

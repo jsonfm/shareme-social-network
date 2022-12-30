@@ -10,7 +10,9 @@ import { authService } from "@/services/auth.service";
 export function Header() {
     const [show, setShow] = useState(false);
     const user = authService.getUser();
+    if(!user)return null;
     const { image, _id } = user;
+
     
     return (
         <header className="flex items-center w-full h-16 shadow-xl md:shadow-none z-[100] sticky top-0 ">
