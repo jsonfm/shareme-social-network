@@ -7,6 +7,7 @@ import { pinDetailQuery } from '@/api/queries';
 import { client } from "@/api/client";
 import { useQuery } from '@tanstack/react-query';
 import { truncate } from "@/utils/strings";
+import { GridLoader } from "react-spinners";
 
 
 export function PinDetail() {
@@ -23,7 +24,7 @@ export function PinDetail() {
     const { image, username } = user;
 
     if(loading){
-        return <p>loading...</p>
+        return <div className="min-h-[65vh] flex items-center justify-center"><GridLoader color="#EF4444" /></div>
     }
 
     if(!!error) {
@@ -32,7 +33,7 @@ export function PinDetail() {
 
     const { postedBy, title, about, destination, image:imagePin } = data[0];
     window.scrollTo(0, 0);
-    
+
     return (
         <>
             <section className="flex flex-col md:flex-row min-h-screen p-5 bg-white md:mx-5 mt-5">
