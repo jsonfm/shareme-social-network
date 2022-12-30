@@ -33,17 +33,17 @@ export function PinCard({ data }) {
                 Save
               </button>
             </div>
-            <div className="flex absolute bottom-4">
+            <div className="flex items-center absolute bottom-4">
               <a href={`${destination}`} target="_blank" rel="noopener noreferrer" className="bg-white p-2 rounded-full flex gap-2 items-center text-sm">
                 <FaExternalLinkSquareAlt/>
-                <p>
+                <p className="flex items-center">
                   {truncate(destination, 10)}
                 </p>
               </a>
             </div>
           </div>
         </Link>
-        <Link to={`/profile/{postedBy._id}`} className="flex mt-2 gap-2">
+        <Link to={`/profile/{postedBy._id}`} className="flex items-center mt-2 gap-2">
           <img
             className="w-8 h-8 rounded-full bg-gray-400"
             src={postedBy.image}
