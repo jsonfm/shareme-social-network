@@ -40,12 +40,13 @@ export function PinDetail() {
                     <img 
                         src={imagePin.asset.url}
                         className="rounded-lg w-full object-contain min-h-[200px]"
+                        lazy="loading"
                     />
                 </div>
                 <div className="w-full md:w-1/2 py-5 md:px-5">
                     <div className="flex items-center justify-between">
                         <BsDownload/>
-                        <a>
+                        <a href={`${destination}`} target="_blank" rel="noopener noreferrer">
                             {truncate(destination)}
                         </a>
                     </div>
@@ -66,7 +67,6 @@ export function PinDetail() {
                             {postedBy.username}
                         </p>
                     </div>
-
                     <div className="mt-12">
                         <p className="text-xl">
                             Comments

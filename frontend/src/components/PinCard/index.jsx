@@ -21,7 +21,8 @@ export function PinCard({ data }) {
         >
           <img
             src={image.asset.url}
-            className="rounded-lg bg-gray"
+            className="rounded-lg bg-gray min-h-[100px] bg-gray-300"
+            loading="lazy"
           />
           <div className="absolute rounded-lg top-0 left-0 w-full h-full bg-black/30 px-2 py-2 pin-buttons">
             <div className="flex justify-between">
