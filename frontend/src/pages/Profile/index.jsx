@@ -4,6 +4,7 @@ import { authService } from "@/services/auth.service";
 export function Profile() {
     const user = authService.getUser();
     const { image, username } = user;
+    window.scrollTo(0, 0);
     return (
         <>
         <section>

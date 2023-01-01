@@ -58,3 +58,31 @@ export const pinDetailQuery = (pinId) => {
     }`;
     return query;
 };
+
+
+export const relatedPinsQuery = (pin) => {
+  const query = `*[_type == "pin" && category == '${pin.category}' && _id != '${pin._id}' ]{
+    image{
+      asset -> {
+        url
+      }
+    },
+    _id,
+    destination,
+    postedBy->{
+      _id,
+      username,
+      image
+    },
+    save[]{
+      _key,
+      postedBy->{
+        _id,
+        username,
+        image
+      },
+    },
+  }`;
+  
+  return query;
+};
