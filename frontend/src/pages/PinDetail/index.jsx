@@ -62,6 +62,7 @@ export function PinDetail() {
     if(!!relatedPins.error){
         console.error(relatedPins.error);
     }
+
     return (
         <>
             <section className="flex flex-col md:flex-row min-h-[400px] p-5 bg-white md:mx-5 mt-5">
@@ -128,7 +129,8 @@ export function PinDetail() {
                 <p className="text-center my-6 font-[400] text-xl">
                     More like this
                 </p>
-                {(!relatedPins.isLoading && !relatedPins.error && data.length > 0) && <PinGrid pins={relatedPins.data}/>}
+                {(!relatedPins.isLoading && !relatedPins.error && relatedPins.data.length > 0) && <PinGrid pins={relatedPins.data}/>}
+                {(!relatedPins.isLoading && !relatedPins.error && relatedPins.data.length === 0) && <div className="min-h-[200px] grid place-items-center text-xl font-bold">There are not related post yet.</div>}
                 {!!relatedPins.isLoading && <div className="min-h-[200px] grid place-items-center"><ClipLoader color="#EF4444" size={50} /></div>}
                 {!!relatedPins.error && <div className="min-h-[200px] grid place-items-center text-xl font-bold">something went wrong :,c</div>}
             </section>
