@@ -20,16 +20,18 @@ export function PinDetail() {
     const { isLoading: loading, error, data } = useQuery({
         queryKey: [`pin-detail-${id}`],
         queryFn: () => client.fetch(pinDetailQuery(id)),
+        cacheTime: 0
     });
 
     const relatedPins = useQuery({
-        queryKey: [`related-pins-${id}`],
+        queryKey: [`related-pins-${id}`],   
         queryFn: () => {
             if(!!data){
                 return client.fetch(relatedPinsQuery(data[0]))
             }
-            return []
+            return Promise.resolve(() => [])
         },
+        cacheTime: 0
     });
 
     const user = authService.getUser();
@@ -62,7 +64,7 @@ export function PinDetail() {
     if(!!relatedPins.error){
         console.error(relatedPins.error);
     }
-
+    // console.log("related pins: ", relatedPins.data)
     return (
         <>
             <section className="flex flex-col md:flex-row min-h-[400px] p-5 bg-white md:mx-5 mt-5">
